@@ -25,3 +25,6 @@ replay_pid*
 
 # VScode
 .vscode/*
+
+# Ignore build output directory
+target/*
