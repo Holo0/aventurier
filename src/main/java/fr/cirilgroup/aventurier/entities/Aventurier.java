@@ -1,12 +1,21 @@
 package fr.cirilgroup.aventurier.entities;
 
-public class Aventurier {
+public final class Aventurier {
+    private static Aventurier aventurier;
+
     private Integer coordonneeX;
     private Integer coordonneeY;
 
-    public Aventurier(Integer x, Integer y) {
+    private Aventurier(Integer x, Integer y) {
         coordonneeX = x;
         coordonneeY = y;
+    }
+
+    public static Aventurier getAventurier(Integer x, Integer y) {
+        if (aventurier == null) {
+            aventurier = new Aventurier(x, y);
+        }
+        return aventurier;
     }
 
     public void bouger(String direction) throws Exception {

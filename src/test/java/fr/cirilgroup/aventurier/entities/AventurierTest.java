@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class AventurierTest {
-
     private Aventurier aventurier;
 
     public AventurierTest() {
@@ -13,13 +12,13 @@ public class AventurierTest {
  
     @Before
     public void setUp() {
-       this.aventurier = new Aventurier(0, 0);
+       this.aventurier = Aventurier.getAventurier(0, 0);
     }
  
     @Test
     public void testGetAventurier() {
        Assert.assertNotNull(this.aventurier);
-       Assert.assertEquals(this.aventurier, new Aventurier(0, 0));
+       Assert.assertEquals(this.aventurier, Aventurier.getAventurier(0, 0));
     }
  
     @Test
@@ -52,4 +51,11 @@ public class AventurierTest {
     public void testBougerWrongDirection() throws Exception {
        this.aventurier.bouger("X");
     }
+
+    @Test
+   public void testSingleton() {
+      Aventurier aventurier1 = Aventurier.getAventurier(0, 0);
+      Aventurier aventurier2 = Aventurier.getAventurier(1, 1);
+      Assert.assertSame("Les instances devraient \u00eatre les m\u00eames", aventurier1, aventurier2);
+   }
 }
