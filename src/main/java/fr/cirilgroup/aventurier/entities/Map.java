@@ -16,6 +16,20 @@ public class Map {
         loadMap(mapFile);
     }
 
+    public boolean isValidPosition(int x, int y) {
+        // Check if the coordinates are within the boundaries of the map
+        boolean withinBounds = y >= 0 && y < map.length && x >= 0 && x < map[0].length;
+        
+        // Check if the target position is not an impassable area
+        return withinBounds && map[y][x] == ' ';
+    }
+
+    public char[][] getMap() {
+        return map;
+    }
+
+    // PRIVATE
+    
     private void loadMap(String mapFile) throws IOException {
         InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(mapFile);
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -27,17 +41,5 @@ public class Map {
         }
         reader.close();
         map = lines.toArray(new char[0][]);
-    }
-
-    public boolean isValidPosition(int x, int y) {
-        // Check if the coordinates are within the boundaries of the map
-        boolean withinBounds = y >= 0 && y < map.length && x >= 0 && x < map[0].length;
-        
-        // Check if the target position is not an impassable area
-        return withinBounds && map[y][x] == ' ';
-    }
-
-    public char[][] getMap() {
-        return map;
     }
 }
