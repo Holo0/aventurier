@@ -34,11 +34,11 @@ public final class Aventurer {
         return "aventurier [x=" + x + ", y=" + y + "]";
     }
 
-    public Integer getCoordonneeX() {
+    public Integer getX() {
         return x;
     }
 
-    public Integer getCoordonneeY() {
+    public Integer getY() {
         return y;
     }
 }
