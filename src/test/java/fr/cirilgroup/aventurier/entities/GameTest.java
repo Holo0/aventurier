@@ -11,7 +11,7 @@ public class GameTest {
 
     @Before
     public void setUp() throws Exception {
-        game = new Game("carte v2.txt", "deplacement.txt");
+        game = new Game("carte v2.txt", "premier_test.txt");
     }
 
     @Test
@@ -35,7 +35,7 @@ public class GameTest {
 
     @Test
     public void testInvalidMove() throws Exception {
-        char[] moves = {'W'};
+        char[] moves = {'O'};
         game.processMoves(moves);
         assertEquals(Integer.valueOf(3), game.getAventurer().getX());
         assertEquals(Integer.valueOf(0), game.getAventurer().getY());
@@ -43,7 +43,7 @@ public class GameTest {
 
     @Test
     public void testMixedMoves() throws Exception {
-        char[] moves = {'S','S','S','E','E','N','N','W','W'};
+        char[] moves = {'S','S','S','E','E','N','N','O','O'};
         game.processMoves(moves);
         assertEquals(Integer.valueOf(3), game.getAventurer().getX());
         assertEquals(Integer.valueOf(1), game.getAventurer().getY());
