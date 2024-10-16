@@ -33,13 +33,17 @@ public class Game {
         this.moves = lines.get(1).toCharArray();
     }
 
-    public void processMoves(String moves) throws Exception {
-        for (char move : moves.toCharArray()) {
+    public void processMoves(char[] moves) throws Exception {
+        for (char move : moves) {
             int[] nextPosition = aventurer.getNextPosition(move);
             if (map.isValidMove(nextPosition[0], nextPosition[1])) {
                 aventurer.move(move);
             }
         }
+    }
+
+    public void displayPosition() {
+        System.out.println("Character is at (" + aventurer.getX() + ", " + aventurer.getY() + ")");
     }
 
     public Map getMap() {
