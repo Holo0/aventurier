@@ -35,7 +35,7 @@ public class AventurerTest {
 
     @Test
     public void testMoveOuest() throws Exception {
-        this.aventurer.move('W');
+        this.aventurer.move('O');
         Assert.assertEquals(Integer.valueOf(-1), this.aventurer.getX());
     }
 

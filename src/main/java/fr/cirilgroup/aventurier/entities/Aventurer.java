@@ -33,6 +33,7 @@ public final class Aventurer {
     public Integer getY() {
         return y;
     }
+
     
     // PRIVATE
     
@@ -41,7 +42,7 @@ public final class Aventurer {
             case 'N': return new int[]{0, -1}; // Move up
             case 'S': return new int[]{0, 1};  // Move down
             case 'E': return new int[]{1, 0};  // Move right
-            case 'W': return new int[]{-1, 0}; // Move left
+            case 'O': return new int[]{-1, 0}; // Move left
             default: throw new Exception("Wrong direction entered");
         }
     }
