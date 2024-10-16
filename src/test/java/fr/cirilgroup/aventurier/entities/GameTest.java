@@ -48,4 +48,10 @@ public class GameTest {
         assertEquals(Integer.valueOf(3), game.getAventurer().getX());
         assertEquals(Integer.valueOf(1), game.getAventurer().getY());
     }
+    
+    @Test(expected = Exception.class)
+    public void testWrongMoves() throws Exception {
+        char[] moves = {'Z','E','B','E','E','N','N','O','O'};
+        game.processMoves(moves);
+    }
 }
