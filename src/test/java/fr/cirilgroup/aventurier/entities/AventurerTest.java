@@ -4,42 +4,43 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AventurierTest {
-    private Aventurier aventurier;
+public class AventurerTest {
+    private Aventurer aventurier;
 
-    public AventurierTest() {
+    public AventurerTest() {
     }
 
     @Before
     public void setUp() {
-        this.aventurier = new Aventurier(0, 0);
+        this.aventurier = new Aventurer(0, 0);
     }
+
     @Test
-    public void testBougerNord() throws Exception {
-        this.aventurier.bouger("N");
+    public void testMoveNord() throws Exception {
+        this.aventurier.move("N");
         Assert.assertEquals(Integer.valueOf(-1), this.aventurier.getCoordonneeY());
     }
 
     @Test
-    public void testBougerSud() throws Exception {
-        this.aventurier.bouger("S");
+    public void testMoveSud() throws Exception {
+        this.aventurier.move("S");
         Assert.assertEquals(Integer.valueOf(1), this.aventurier.getCoordonneeY());
     }
 
     @Test
-    public void testBougerEst() throws Exception {
-        this.aventurier.bouger("E");
+    public void testMoveEst() throws Exception {
+        this.aventurier.move("E");
         Assert.assertEquals(Integer.valueOf(1), this.aventurier.getCoordonneeX());
     }
 
     @Test
-    public void testBougerOuest() throws Exception {
-        this.aventurier.bouger("O");
+    public void testMoveOuest() throws Exception {
+        this.aventurier.move("O");
         Assert.assertEquals(Integer.valueOf(-1), this.aventurier.getCoordonneeX());
     }
 
     @Test(expected = Exception.class)
-    public void testBougerWrongDirection() throws Exception {
-        this.aventurier.bouger("X");
+    public void testMoveWrongDirection() throws Exception {
+        this.aventurier.move("X");
     }
 }
