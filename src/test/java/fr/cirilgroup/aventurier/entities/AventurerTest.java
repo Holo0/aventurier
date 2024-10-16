@@ -17,30 +17,30 @@ public class AventurerTest {
 
     @Test
     public void testMoveNord() throws Exception {
-        this.aventurer.move("N");
+        this.aventurer.move('N');
         Assert.assertEquals(Integer.valueOf(-1), this.aventurer.getY());
     }
 
     @Test
     public void testMoveSud() throws Exception {
-        this.aventurer.move("S");
+        this.aventurer.move('S');
         Assert.assertEquals(Integer.valueOf(1), this.aventurer.getY());
     }
 
     @Test
     public void testMoveEst() throws Exception {
-        this.aventurer.move("E");
+        this.aventurer.move('E');
         Assert.assertEquals(Integer.valueOf(1), this.aventurer.getX());
     }
 
     @Test
     public void testMoveOuest() throws Exception {
-        this.aventurer.move("O");
+        this.aventurer.move('W');
         Assert.assertEquals(Integer.valueOf(-1), this.aventurer.getX());
     }
 
     @Test(expected = Exception.class)
     public void testMoveWrongDirection() throws Exception {
-        this.aventurer.move("X");
+        this.aventurer.move('X');
     }
 }
