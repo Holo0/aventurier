@@ -2,6 +2,10 @@ package fr.cirilgroup.aventurier.entities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,6 +28,37 @@ public class GameTest {
         // check move
         assertEquals("SSSSEEEEEENN",  String.copyValueOf(game.getMoves()));
     }
+
+    @Test
+    public void testValidStartPosition() throws IOException, Exception {
+        Game game = new Game("carte v2.txt", "valid_moves.txt");
+        assertNotNull(game);
+        assertEquals(Integer.valueOf(3), game.getAventurer().getX());
+        assertEquals(Integer.valueOf(0), game.getAventurer().getY());
+    }
+
+    @Test
+    public void testInvalidStartPositionOutOfBound() {
+        Exception exception = assertThrows(Exception.class, () -> {
+            new Game("carte v2.txt", "invalid_start_out.txt");
+        });
+
+        String expectedMessage = "Les coordonnées initiales sont en dehors des limites de la grille ou sur un arbre";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.equals(expectedMessage));
+    }
+
+    @Test
+    public void testInvalidStartPosition() {
+        Exception exception = assertThrows(Exception.class, () -> {
+            new Game("carte v2.txt", "invalid_start.txt");
+        });
+
+        String expectedMessage = "Les coordonnées initiales sont en dehors des limites de la grille ou sur un arbre";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.equals(expectedMessage));
+    }
+
 
     @Test
     public void testValidMoves() throws Exception {
