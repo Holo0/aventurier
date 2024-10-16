@@ -31,7 +31,7 @@ public final class Aventurer {
 
     @Override
     public String toString() {
-        return "aventurier [x=" + x + ", y=" + y + "]";
+        return "aventurer [x=" + x + ", y=" + y + "]";
     }
 
     public Integer getX() {

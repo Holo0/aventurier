@@ -5,42 +5,42 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class AventurerTest {
-    private Aventurer aventurier;
+    private Aventurer aventurer;
 
     public AventurerTest() {
     }
 
     @Before
     public void setUp() {
-        this.aventurier = new Aventurer(0, 0);
+        this.aventurer = new Aventurer(0, 0);
     }
 
     @Test
     public void testMoveNord() throws Exception {
-        this.aventurier.move("N");
-        Assert.assertEquals(Integer.valueOf(-1), this.aventurier.getY());
+        this.aventurer.move("N");
+        Assert.assertEquals(Integer.valueOf(-1), this.aventurer.getY());
     }
 
     @Test
     public void testMoveSud() throws Exception {
-        this.aventurier.move("S");
-        Assert.assertEquals(Integer.valueOf(1), this.aventurier.getY());
+        this.aventurer.move("S");
+        Assert.assertEquals(Integer.valueOf(1), this.aventurer.getY());
     }
 
     @Test
     public void testMoveEst() throws Exception {
-        this.aventurier.move("E");
-        Assert.assertEquals(Integer.valueOf(1), this.aventurier.getX());
+        this.aventurer.move("E");
+        Assert.assertEquals(Integer.valueOf(1), this.aventurer.getX());
     }
 
     @Test
     public void testMoveOuest() throws Exception {
-        this.aventurier.move("O");
-        Assert.assertEquals(Integer.valueOf(-1), this.aventurier.getX());
+        this.aventurer.move("O");
+        Assert.assertEquals(Integer.valueOf(-1), this.aventurer.getX());
     }
 
     @Test(expected = Exception.class)
     public void testMoveWrongDirection() throws Exception {
-        this.aventurier.move("X");
+        this.aventurer.move("X");
     }
 }
