@@ -35,9 +35,10 @@ public class Game {
 
     public void processMoves(char[] moves) throws Exception {
         for (char move : moves) {
-            int[] nextPosition = aventurer.getNextPosition(move);
+            Direction direction = Direction.fromChar(move);
+            int[] nextPosition = aventurer.getNextPosition(direction);
             if (map.isValidMove(nextPosition[0], nextPosition[1])) {
-                aventurer.move(move);
+                aventurer.move(direction);
             }
         }
     }
