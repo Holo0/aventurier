@@ -29,6 +29,16 @@ public class Map {
         map = lines.toArray(new char[0][]);
     }
 
+    public boolean isValidMove(int x, int y) {
+        // Check if the coordinates are within the boundaries of the map
+        boolean withinBounds = y >= 0 && y < map.length && x >= 0 && x < map[0].length;
+        
+        // Check if the target position is not an impassable area
+        boolean isPassable = withinBounds && map[y][x] == ' ';
+        
+        return isPassable;
+    }    
+
     public char[][] getMap() {
         return map;
     }
