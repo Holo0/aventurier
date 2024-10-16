@@ -33,6 +33,15 @@ public class Game {
         this.moves = lines.get(1).toCharArray();
     }
 
+    public void processMoves(String moves) throws Exception {
+        for (char move : moves.toCharArray()) {
+            int[] nextPosition = aventurer.getNextPosition(move);
+            if (map.isValidMove(nextPosition[0], nextPosition[1])) {
+                aventurer.move(move);
+            }
+        }
+    }
+
     public Map getMap() {
         return map;
     }
