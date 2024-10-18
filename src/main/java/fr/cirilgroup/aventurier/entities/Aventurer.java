@@ -21,11 +21,6 @@ public final class Aventurer {
         return new int[] { x + move[0], y + move[1] };
     }
 
-    @Override
-    public String toString() {
-        return "aventurer [x=" + x + ", y=" + y + "]";
-    }
-
     public Integer getX() {
         return x;
     }
@@ -34,9 +29,8 @@ public final class Aventurer {
         return y;
     }
 
-    
     // PRIVATE
-    
+
     private int[] getMove(EnumDirection direction) {
         switch (direction) {
             case N:
