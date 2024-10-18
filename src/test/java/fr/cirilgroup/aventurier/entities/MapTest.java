@@ -54,10 +54,10 @@ public class MapTest {
 
     @Test
     public void testIsValidMove() {
-        assertTrue(this.map.isValidMove(3, 0)); // 3,0 is a valid move
-        assertFalse(this.map.isValidMove(2, 0)); // 2,0 is an impassable area
+        assertTrue(this.map.isValidPosition(3, 0)); // 3,0 is a valid move
+        assertFalse(this.map.isValidPosition(2, 0)); // 2,0 is an impassable area
         
-        assertFalse(this.map.isValidMove(-1, 0)); // Out of bounds
-        assertFalse(map.isValidMove(10, 10)); // Out of bounds
+        assertFalse(this.map.isValidPosition(-1, 0)); // Out of bounds
+        assertFalse(map.isValidPosition(10, 10)); // Out of bounds
     }
 }
