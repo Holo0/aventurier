@@ -61,11 +61,12 @@ public class Game {
 
     private void readMoveFile(String moveFile) throws Exception {
         InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(moveFile);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
         if (inputStream == null) {
             throw new Exception("Le fichier n'a pas été trouvé dans le dossier resources");
         }
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
         List<String> lines = reader.lines().collect(Collectors.toList());
         String[] coordonees = lines.get(0).split(",");
 
@@ -78,13 +79,19 @@ public class Game {
         }
         this.aventurer = new Aventurer(startX, startY);
 
+        // Handle empty moves case
+        if (lines.size() > 1 && !lines.get(1).isEmpty()) {
             this.moves = EnumDirection.fromChar(lines.get(1).toCharArray());
+        } else {
+            this.moves = new EnumDirection[0]; // No moves provided
+        }
+        
     }
 
     public boolean isValidMove(int x, int y) {
         return map.isValidPosition(x, y);
     }
-    
+
     private boolean isValidStart(int x, int y) {
         return map.isValidPosition(x, y);
     }
