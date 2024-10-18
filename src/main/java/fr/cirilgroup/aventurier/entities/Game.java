@@ -12,20 +12,20 @@ import fr.cirilgroup.aventurier.Main;
 public class Game {
     private Map map;
     private Aventurer aventurer;
-    private char[] moves;
+    private EnumDirection[] moves;
 
     public Game(String mapFile, String moveFile) throws IOException, Exception {
         this.map = new Map(mapFile);
         this.readMoveFile(moveFile);
     }
 
-    public void processMoves(char[] moves) throws Exception {
-        for (char move : moves) {
-            Direction direction = Direction.fromChar(move);
-            int[] nextPosition = aventurer.getNextPosition(direction);
+    public void processMoves(EnumDirection[] moves) throws Exception {
+        for (EnumDirection move : moves) {
+            int[] nextPosition = aventurer.getNextPosition(move);
             if (isValidMove(nextPosition[0], nextPosition[1])) {
-                aventurer.move(direction);
+                aventurer.move(move);
             }
+            displayPosition();
         }
     }
 
@@ -41,7 +41,7 @@ public class Game {
         return aventurer;
     }
 
-    public char[] getMoves() {
+    public EnumDirection[] getMoves() {
         return moves;
     }
 
@@ -66,7 +66,7 @@ public class Game {
         }
         this.aventurer = new Aventurer(startX, startY);
 
-        this.moves = lines.get(1).toCharArray();
+            this.moves = EnumDirection.fromChar(lines.get(1).toCharArray());
     }
 
     public boolean isValidMove(int x, int y) {

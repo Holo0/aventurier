@@ -10,13 +10,13 @@ public final class Aventurer {
         this.y = y;
     }
 
-    public void move(Direction direction) {
+    public void move(EnumDirection direction) {
         int[] move = getMove(direction);
         this.x += move[0];
         this.y += move[1];
     }
 
-    public int[] getNextPosition(Direction direction) {
+    public int[] getNextPosition(EnumDirection direction) {
         int[] move = getMove(direction);
         return new int[] { x + move[0], y + move[1] };
     }
@@ -37,12 +37,16 @@ public final class Aventurer {
     
     // PRIVATE
     
-    private int[] getMove(Direction direction) {
+    private int[] getMove(EnumDirection direction) {
         switch (direction) {
-            case N: return new int[]{0, -1}; // Move up
-            case S: return new int[]{0, 1};  // Move down
-            case E: return new int[]{1, 0};  // Move right
-            case O: return new int[]{-1, 0}; // Move left
+            case N:
+                return new int[] { 0, -1 }; // Move up
+            case S:
+                return new int[] { 0, 1 }; // Move down
+            case E:
+                return new int[] { 1, 0 }; // Move right
+            case O:
+                return new int[] { -1, 0 }; // Move left
         }
         return null; // Default case should never be reached
     }
