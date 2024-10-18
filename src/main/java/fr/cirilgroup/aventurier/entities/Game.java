@@ -30,7 +30,19 @@ public class Game {
     }
 
     public void displayPosition() {
+        System.out.println("---------------------------------------------------------------------");
         System.out.println("Character is at (" + aventurer.getX() + ", " + aventurer.getY() + ")");
+        char[][] displayedMap = map.getMap();
+        for (int y = 0; y < displayedMap.length; y++) {
+            for (int x = 0; x < displayedMap[y].length; x++) {
+                if (x == aventurer.getX() && y == aventurer.getY()) {
+                    System.out.print('O');
+                } else {
+                    System.out.print(displayedMap[y][x]);
+                }
+            }
+            System.out.println();
+        }
     }
 
     public Map getMap() {
