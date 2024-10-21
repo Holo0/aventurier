@@ -28,3 +28,6 @@ replay_pid*
 
 # Ignore build output directory
 target/*
+
+# Ignore documentation folder
+documentation/*
