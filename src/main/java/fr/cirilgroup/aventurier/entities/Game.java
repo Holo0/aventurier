@@ -21,17 +21,24 @@ public class Game {
 
     public void processMoves(EnumDirection[] moves) throws Exception {
         for (EnumDirection move : moves) {
+            displayPosition(move);
+
             int[] nextPosition = aventurer.getNextPosition(move);
             if (isValidMove(nextPosition[0], nextPosition[1])) {
                 aventurer.move(move);
             }
-            displayPosition();
         }
-    }
-
-    public void displayPosition() {
+        displayPosition(null);
+        }
+    public void displayPosition(EnumDirection move) {
         System.out.println("---------------------------------------------------------------------");
+        if (move != null) {
+            System.out.println(
+                    "Character is at (" + aventurer.getX() + ", " + aventurer.getY() + ") and is moving " + move);
+        } else {
         System.out.println("Character is at (" + aventurer.getX() + ", " + aventurer.getY() + ")");
+        }
+
         char[][] displayedMap = map.getMap();
         for (int y = 0; y < displayedMap.length; y++) {
             for (int x = 0; x < displayedMap[y].length; x++) {

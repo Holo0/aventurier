@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         try {
             Game game = new Game("carte v2.txt", "deuxieme_test.txt");
-            game.displayPosition();
             game.processMoves(game.getMoves());
         } catch (IOException e) {
             System.err.println("Error loading map file: " + e.getMessage());
