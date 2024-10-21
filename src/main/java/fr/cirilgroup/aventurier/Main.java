@@ -6,6 +6,7 @@ import fr.cirilgroup.aventurier.entities.Game;
 public class Main {
     public static void main(String[] args) {
         try {
+            // Game game = new Game(args[1], args[2]);
             Game game = new Game("carte v2.txt", "deuxieme_test.txt");
             game.processMoves(game.getMoves());
         } catch (IOException e) {
